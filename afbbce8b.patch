@@ -1,0 +1,21 @@
+commit afbbce8b0cea2a423eb839e9286dd62960c664f3
+Author: Daniel van Vugt <daniel.van.vugt@canonical.com>
+Date:   Tue Nov 2 18:48:45 2021 +0800
+
+    onscreen/native: Warn instead of crashing if the frame_info queue is empty
+    
+    Reported by someone else. Not sure how this can happen though.
+
+diff --git a/src/backends/native/meta-onscreen-native.c b/src/backends/native/meta-onscreen-native.c
+index a4c78c248..637235e09 100644
+--- a/src/backends/native/meta-onscreen-native.c
++++ b/src/backends/native/meta-onscreen-native.c
+@@ -190,6 +190,8 @@ notify_view_crtc_presented (MetaRendererView *view,
+ 
+   frame_info = cogl_onscreen_peek_head_frame_info (onscreen);
+ 
++  g_return_if_fail (frame_info != NULL);
++
+   crtc = META_CRTC (meta_crtc_kms_from_kms_crtc (kms_crtc));
+   maybe_update_frame_info (crtc, frame_info, time_us, flags, sequence);
+ 
