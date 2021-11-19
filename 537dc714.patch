@@ -1,0 +1,33 @@
+commit 537dc714a70332f81bcd9e842ff96357adbae479
+Author: Daniel van Vugt <daniel.van.vugt@canonical.com>
+Date:   Mon Nov 1 19:35:34 2021 +0800
+
+    renderer/native: Steal the power save flip list before iterating over it
+    
+    Because a single iteration might also grow the list again.
+
+diff --git a/src/backends/native/meta-renderer-native.c b/src/backends/native/meta-renderer-native.c
+index 832a4bcd2..b44b02c62 100644
+--- a/src/backends/native/meta-renderer-native.c
++++ b/src/backends/native/meta-renderer-native.c
+@@ -629,12 +629,18 @@ static gboolean
+ dummy_power_save_page_flip_cb (gpointer user_data)
+ {
+   MetaRendererNative *renderer_native = user_data;
++  GList *old_list =
++    g_steal_pointer (&renderer_native->power_save_page_flip_onscreens);
+ 
+-  g_list_foreach (renderer_native->power_save_page_flip_onscreens,
++  g_list_foreach (old_list,
+                   (GFunc) meta_onscreen_native_dummy_power_save_page_flip,
+                   NULL);
+-  g_clear_list (&renderer_native->power_save_page_flip_onscreens,
++  g_clear_list (&old_list,
+                 g_object_unref);
++
++  if (renderer_native->power_save_page_flip_onscreens != NULL)
++    return G_SOURCE_CONTINUE;
++
+   renderer_native->power_save_page_flip_source_id = 0;
+ 
+   return G_SOURCE_REMOVE;

@@ -1,4 +1,4 @@
-commit a34ad6f0ad1069d4b17c4d17588b90b9609abcb9
+commit 4de344be943145dcd7bfc1c0bb87398bc35f9403
 Author: Daniel van Vugt <daniel.van.vugt@canonical.com>
 Date:   Tue Nov 2 19:20:34 2021 +0800
 
@@ -7,7 +7,7 @@ Date:   Tue Nov 2 19:20:34 2021 +0800
     This can happen after hotplugging during heavy animation.
 
 diff --git a/src/backends/native/meta-onscreen-native.c b/src/backends/native/meta-onscreen-native.c
-index 7194f1c7d..207e50b0c 100644
+index 031b3c9a4..b39308e68 100644
 --- a/src/backends/native/meta-onscreen-native.c
 +++ b/src/backends/native/meta-onscreen-native.c
 @@ -402,7 +402,7 @@ meta_onscreen_native_flip_crtc (CoglOnscreen                *onscreen,

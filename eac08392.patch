@@ -1,4 +1,4 @@
-commit afbbce8b0cea2a423eb839e9286dd62960c664f3
+commit eac08392b1f3d1783f88e23acd7cb7a5132cea31
 Author: Daniel van Vugt <daniel.van.vugt@canonical.com>
 Date:   Tue Nov 2 18:48:45 2021 +0800
 
@@ -7,7 +7,7 @@ Date:   Tue Nov 2 18:48:45 2021 +0800
     Reported by someone else. Not sure how this can happen though.
 
 diff --git a/src/backends/native/meta-onscreen-native.c b/src/backends/native/meta-onscreen-native.c
-index a4c78c248..637235e09 100644
+index 46681e7f9..29d509a1e 100644
 --- a/src/backends/native/meta-onscreen-native.c
 +++ b/src/backends/native/meta-onscreen-native.c
 @@ -190,6 +190,8 @@ notify_view_crtc_presented (MetaRendererView *view,

@@ -1,4 +1,4 @@
-commit 268e0c1cd46ba0800743f726f66501c5a6cb8f97
+commit debdf105e608749e420915beda3d07f9127130c4
 Author: Daniel van Vugt <daniel.van.vugt@canonical.com>
 Date:   Tue Nov 2 19:04:04 2021 +0800
 
@@ -9,10 +9,10 @@ Date:   Tue Nov 2 19:04:04 2021 +0800
     callbacks.
 
 diff --git a/src/backends/native/meta-onscreen-native.c b/src/backends/native/meta-onscreen-native.c
-index 207e50b0c..680cbafa1 100644
+index b39308e68..9dc080a0c 100644
 --- a/src/backends/native/meta-onscreen-native.c
 +++ b/src/backends/native/meta-onscreen-native.c
-@@ -2111,10 +2111,10 @@ meta_onscreen_native_new (MetaRendererNative *renderer_native,
+@@ -2136,10 +2136,10 @@ meta_onscreen_native_new (MetaRendererNative *renderer_native,
                                    "height", height,
                                    NULL);
  
@@ -27,7 +27,7 @@ index 207e50b0c..680cbafa1 100644
  
    return onscreen_native;
  }
-@@ -2169,6 +2169,11 @@ meta_onscreen_native_dispose (GObject *object)
+@@ -2194,6 +2194,11 @@ meta_onscreen_native_dispose (GObject *object)
                     secondary_gpu_state_free);
    g_clear_pointer (&onscreen_native->next_post.rectangles, g_free);
    onscreen_native->next_post.n_rectangles = 0;
