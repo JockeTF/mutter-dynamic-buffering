@@ -5,7 +5,7 @@
 
 pkgname=mutter-dynamic-buffering
 pkgver=41.1
-pkgrel=1.2
+pkgrel=1.3
 pkgdesc="A window manager for GNOME (with dynamic triple/double buffering)"
 url="https://gitlab.gnome.org/GNOME/mutter"
 arch=(x86_64)
@@ -22,18 +22,12 @@ conflicts=(mutter)
 groups=(gnome)
 _commit=8de96d3d7c40e6b5289fd707fdd5e6d604f33e8f  # tags/41.1^0
 source=("$pkgname::git+https://gitlab.gnome.org/GNOME/mutter.git#commit=$_commit"
-        '4de344be.patch'
-        '537dc714.patch'
-        'debdf105.patch'
-        'eac08392.patch'
+        'backports.patch'
         'mr1441.patch'
 )
 
 sha256sums=('SKIP'
-            'b76fdcbad54c738fa6c1f628e54bde2dbfd22fb2957be3856bb588ac5d4ecee2'
-            'bef735e1eca27a19e1b37732fa0f0ed80cafa332759792833357f6c6bae46afb'
-            '024b9fbc789d156455f78272bbdad80c936372b7ccd97fbcd28da3e916278fc4'
-            '05142ac5198df895e8f09b0a3f415d9b97d870fddb2c31f88255b45d7422db6c'
+            'ba41afab8091d066c9201e900f4e9478f9fcb600647aceb08c1b411ccb04028d'
             '592c03f4a492d39d760b174e487b3b2a58e9caef9b9ef886f5aa09abb94b69d3')
 
 pkgver() {
@@ -44,10 +38,7 @@ pkgver() {
 prepare() {
   cd "$srcdir/$pkgname"
   patch -p1 < "$srcdir/mr1441.patch"
-  patch -p1 < "$srcdir/4de344be.patch"
-  patch -p1 < "$srcdir/537dc714.patch"
-  patch -p1 < "$srcdir/debdf105.patch"
-  patch -p1 < "$srcdir/eac08392.patch"
+  patch -p1 < "$srcdir/backports.patch"
 }
 
 build() {
