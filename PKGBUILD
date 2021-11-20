@@ -23,8 +23,7 @@ groups=(gnome)
 _commit=8de96d3d7c40e6b5289fd707fdd5e6d604f33e8f  # tags/41.1^0
 source=("$pkgname::git+https://gitlab.gnome.org/GNOME/mutter.git#commit=$_commit"
         'backports.patch'
-        'mr1441.patch'
-)
+        'mr1441.patch')
 
 sha256sums=('SKIP'
             'ba41afab8091d066c9201e900f4e9478f9fcb600647aceb08c1b411ccb04028d'
