@@ -5,7 +5,7 @@
 
 pkgbase=mutter-dynamic-buffering
 pkgname=(mutter-dynamic-buffering)
-pkgver=42.5
+pkgver=43.0
 pkgrel=1
 pkgdesc="A window manager for GNOME (with dynamic triple/double buffering)"
 url="https://gitlab.gnome.org/GNOME/mutter"
@@ -19,12 +19,12 @@ makedepends=(gobject-introspection git egl-wayland meson xorg-server
              wayland-protocols sysprof gi-docgen)
 #checkdepends=(xorg-server-xvfb wireplumber python-dbusmock)
 #options=(debug)
-_commit=4b35c269c7ad2515f91d2d3ccaea7526e0cb5f97  # tags/42.5^0
+_commit=bdf3470a8a89206a39dc45824a8080dc6a9666ca  # tags/43.0^0
 source=("$pkgname::git+https://gitlab.gnome.org/GNOME/mutter.git#commit=$_commit"
         'mr1441.patch')
 
 sha256sums=('SKIP'
-            '0eba7abe0eb036a05809a961f9e63de5e1611c6e32ffb55170b8e2aa190009c1')
+            'd43a8d9c96a13c20d228726541de8b15f1eced7cf2eb706644fcd7730fba7a56')
 
 pkgver() {
   cd $pkgname
