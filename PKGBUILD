@@ -82,7 +82,7 @@ _pick() {
 
 package_mutter-dynamic-buffering() {
   conflicts=(mutter)
-  provides=(mutter libmutter-10.so)
+  provides=(mutter libmutter-11.so)
   groups=(gnome)
 
   meson install -C build --destdir "$pkgdir"

@@ -38,5 +38,5 @@ pkgbase = mutter-dynamic-buffering
 pkgname = mutter-dynamic-buffering
 	groups = gnome
 	provides = mutter
-	provides = libmutter-10.so
+	provides = libmutter-11.so
 	conflicts = mutter
