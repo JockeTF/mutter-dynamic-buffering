@@ -12,12 +12,12 @@ url="https://gitlab.gnome.org/GNOME/mutter"
 arch=(x86_64)
 license=(GPL)
 depends=(dconf gobject-introspection-runtime gsettings-desktop-schemas
-         libcanberra startup-notification zenity libsm gnome-desktop
-         libxkbcommon-x11 gnome-settings-daemon libgudev libinput pipewire
-         xorg-xwayland graphene libxkbfile libsysprof-capture)
+         libcanberra startup-notification libsm gnome-desktop libxkbcommon-x11
+         gnome-settings-daemon libgudev libinput pipewire xorg-xwayland graphene
+         libxkbfile libsysprof-capture lcms2 colord)
 makedepends=(gobject-introspection git egl-wayland meson xorg-server
              wayland-protocols sysprof gi-docgen)
-#checkdepends=(xorg-server-xvfb wireplumber python-dbusmock)
+#checkdepends=(xorg-server-xvfb wireplumber python-dbusmock zenity)
 #options=(debug)
 _commit=bdf3470a8a89206a39dc45824a8080dc6a9666ca  # tags/43.0^0
 source=("$pkgname::git+https://gitlab.gnome.org/GNOME/mutter.git#commit=$_commit"
